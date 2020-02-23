@@ -1,0 +1,17 @@
+<ActionBar class="action-bar">
+    <Label class="action-bar-title" text="Geolocalizacao-Nativescript-Angular"></Label>
+</ActionBar>
+
+<GridLayout rows="auto, auto, *, auto" class="page">
+    <GridLayout row="0" columns="*, *, *" >
+        <Button text="Descobrir minha localizacao" col="0" textWrap="true" (tap)="buttonGetLocationTap()"></Button>
+        <Button text="Monitorar minha localizacao" col="1" textWrap="true" (tap)="buttonStartTap()"></Button>
+        <Button text="Parar o monitoramento" col="2" textWrap="true" (tap)="buttonStopTap()"></Button>
+    </GridLayout>
+    <ListView row="2" [items]="locations">
+        <ng-template let-item="item">
+            <Label text="{{ item.latitude + ', ' + item.longitude + ', ' + item.altitude }}" ></Label>
+        </ng-template>
+    </ListView>
+    <Button text="Para e apaga os dados da localizacao" row="3" (tap)="buttonClearTap()"></Button>
+</GridLayout>
